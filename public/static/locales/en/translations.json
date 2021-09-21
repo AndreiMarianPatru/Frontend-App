@@ -13,6 +13,7 @@
   "MyProfile": "My Profile",
   "Forbidden": "Not allowed to see this page!",
   "NavBar": {
+    "MyFirstMenu": "My first menu",
     "Dashboard": "Dashboard",
     "Settings": "Settings"
   },

@@ -5,6 +5,7 @@
   "MyProfile": "Profilul meu",
   "Forbidden": "Nu aveti dreptul sa vedeti aceasta pagina!",
   "NavBar": {
+    "MyFirstMenu": "Primul meu meniu",
     "Dashboard": "Panou central",
     "Settings": "Setari",
     "User": "Profil"
