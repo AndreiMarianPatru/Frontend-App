@@ -48,3 +48,8 @@ export const addMilliseconds = curry((milliseconds, date) => new Date(date.getTi
 
 // subtractOneMillisecond :: Date -> Date
 export const subtractOneMillisecond = addMilliseconds(-1)
+
+import { validEmailRegEx } from './constants'
+
+// validateEmail :: String -> Boolean
+export const validateEmail = email => validEmailRegEx.test(email)

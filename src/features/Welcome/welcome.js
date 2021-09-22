@@ -1,13 +1,35 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useCallback, useState } from 'react'
 import { Typography, Grid } from '@material-ui/core'
 import IconButton from '@bit/totalsoft_oss.react-mui.icon-button'
 import { CustomTextField } from '@bit/totalsoft_oss.react-mui.kit.core'
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn'
-
 import { useTranslation } from 'react-i18next'
+import { emptyString } from 'utils/constants'
+import { useApolloLocalStorage } from 'hooks/apolloLocalStorage'
+import { useEmail } from 'hooks/useEmail'
+import { validateEmail } from 'utils/functions'
 
 function Welcome() {
   const { t } = useTranslation()
+
+  const [email, setEmail] = useEmail()
+  const [textFieldValue, setTextFieldValue] = useState(email)
+
+  const handleTextFieldValueChange = useCallback(event => setTextFieldValue(event.target.value), [])
+
+  const handleButtonClick = useCallback(() => {
+    const isEmailValid = validateEmail(textFieldValue)
+    setEmail(isEmailValid ? textFieldValue : emptyString)
+  }, [setEmail, textFieldValue])
+
+  const handleKeyDown = useCallback(
+    event => {
+      if (event.keyCode === 13) {
+        handleButtonClick()
+      }
+    },
+    [handleButtonClick]
+  )
 
   return (
     <Grid container justify='center' alignItems='center' alignContent='center' direction='column' spacing={10}>
@@ -22,10 +44,14 @@ function Welcome() {
           <CustomTextField
             fullWidth
             endAdornment={
-              <IconButton size='small' color='theme' aria-label='go'>
+              <IconButton size='small' color='theme' aria-label='go' onClick={handleButtonClick}>
                 <KeyboardReturnIcon fontSize='small' />
               </IconButton>
             }
+            debounceBy={0}
+            value={textFieldValue}
+            onChange={handleTextFieldValueChange}
+            onKeyDown={handleKeyDown}
           />
         </Grid>
       </Grid>
