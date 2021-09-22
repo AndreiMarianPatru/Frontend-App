@@ -8,9 +8,13 @@ import { emptyString } from 'utils/constants'
 import { useApolloLocalStorage } from 'hooks/apolloLocalStorage'
 import { useEmail } from 'hooks/useEmail'
 import { validateEmail } from 'utils/functions'
+import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 
 function Welcome() {
   const { t } = useTranslation()
+
+  const [isValid, setIsValid] = useState(true)
+  const addToast = useToast()
 
   const [email, setEmail] = useEmail()
   const [textFieldValue, setTextFieldValue] = useState(email)
@@ -20,6 +24,15 @@ function Welcome() {
   const handleButtonClick = useCallback(() => {
     const isEmailValid = validateEmail(textFieldValue)
     setEmail(isEmailValid ? textFieldValue : emptyString)
+    // if(isEmailValid==false)
+    //   addToast('Invalid Email!', 'failure')
+    // return (
+    //<Fragment>
+    //   <Typography>Invalid Email!</Typography>
+    //   <Grid>Enter another email!</Grid>
+    // </Fragment>
+    //)
+    setIsValid(isEmailValid)
   }, [setEmail, textFieldValue])
 
   const handleKeyDown = useCallback(
@@ -52,6 +65,11 @@ function Welcome() {
             value={textFieldValue}
             onChange={handleTextFieldValueChange}
             onKeyDown={handleKeyDown}
+            error={!isValid}
+            id={!isValid && 'outlined-error-helper-text'}
+            label={!isValid && 'Error'}
+            helperText={!isValid && t('LandingPage.BadEmail')}
+            variant={!isValid && 'outlined'}
           />
         </Grid>
       </Grid>
