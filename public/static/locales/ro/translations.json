@@ -10,11 +10,16 @@
     "Settings": "Setari",
     "User": "Profil"
   },
+  "LandingPage": {
+    "Title": "Bun venit!",
+    "Subtitle": "Te rog introdu email-ul personal:"
+  },
   "Tooltips": {
     "Logout": "Iesire",
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola"
   },
+
   "Dialog": {
     "Yes": "Da",
     "No": "Nu"

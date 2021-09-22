@@ -17,6 +17,10 @@
     "Welcome": "Welcome",
     "Settings": "Settings"
   },
+  "LandingPage": {
+    "Title": "Welcome!",
+    "Subtitle": "Please enter your email:"
+  },
   "Tooltips": {
     "Logout": "Logout",
     "HidePassword": "Hide password",
