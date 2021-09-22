@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Typography, Grid } from '@material-ui/core'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 
-function Dashboard() {
+function Welcome() {
   const addToast = useToast()
   addToast('This is my toast', 'success')
   return (
@@ -13,4 +13,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default Welcome
