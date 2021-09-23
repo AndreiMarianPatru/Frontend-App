@@ -36,6 +36,11 @@
     }
   },
   "Conferences": {
+    "Speaker": "Orator ",
+    "Attend": "Participa",
+    "Join": "Inscrie-te",
+    "Withdraw": "Retrage-te",
+    "StatusNotSet": "Nu participi",
     "Filters": {
       "StartDate": "Data incepere",
       "EndDate": "Data terminare"

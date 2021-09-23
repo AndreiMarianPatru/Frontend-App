@@ -42,6 +42,11 @@
     }
   },
   "Conferences": {
+    "Speaker": "Speaker ",
+    "Attend": "Attend",
+    "Join": "Join",
+    "Withdraw": "Withdraw",
+    "StatusNotSet": "Not attending",
     "Filters": {
       "StartDate": "Start date",
       "EndDate": "End date"
