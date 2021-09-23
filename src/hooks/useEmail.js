@@ -5,6 +5,7 @@ import { emailKey } from 'apollo/cacheKeyFunctions'
 export const useEmail = () => {
   const [storageEmail, setStorageemail] = useApolloLocalStorage(emailKey)
   const email = storageEmail.email
+  //const email = { email: "admin@totalsoft.ro" }
   const setEmail = useCallback(value => setStorageemail({ email: value }), [setStorageemail])
 
   return [email, setEmail]

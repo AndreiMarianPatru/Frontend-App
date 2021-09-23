@@ -1,0 +1,18 @@
+import RegularCard from '@bit/totalsoft_oss.react-mui.regular-card'
+import React from 'react'
+import PropTypes from 'prop-types'
+import ConferenceSubtitle from './ConferenceSubtitle'
+const ConferenceItem = props => {
+  const { conference } = props
+  const { name, location, speakers } = conference
+  const speaker = speakers.find(speaker => speaker.isMainSpeaker)
+
+  return (
+    <RegularCard cardTitle={name} cardSubtitle={<ConferenceSubtitle speaker={speaker} location={location} />} content={'content here'} />
+  )
+}
+
+ConferenceItem.propTypes = {
+  conference: PropTypes.object.isRequired
+}
+export default ConferenceItem
