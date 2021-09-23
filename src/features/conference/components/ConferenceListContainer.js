@@ -1,7 +1,8 @@
 import React from 'react'
+import ConferenceFilters from './ConferenceFilters'
 
 const ConferenceListContainer = () => {
-  return <div>Hello World</div>
+  return <ConferenceFilters />
 }
 
 export default ConferenceListContainer

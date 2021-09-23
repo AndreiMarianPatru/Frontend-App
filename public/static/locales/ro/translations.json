@@ -29,6 +29,18 @@
     "Yes": "Da",
     "No": "Nu"
   },
+  "General": {
+    "Buttons": {
+      "ApplyFilters": "Aplica filtre",
+      "ResetFilters": "Reseteaza filtre"
+    }
+  },
+  "Conferences": {
+    "Filters": {
+      "StartDate": "Data incepere",
+      "EndDate": "Data terminare"
+    }
+  },
   "DateTime": {
     "InvalidDateMessage": "Formatul datei este invalid",
     "MinDateMessage": "Data introdusa nu poate fi mai mica decat valoarea minima",

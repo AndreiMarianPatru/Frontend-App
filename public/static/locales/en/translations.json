@@ -35,6 +35,18 @@
   "UserMenu": {
     "User": "User"
   },
+  "General": {
+    "Buttons": {
+      "ApplyFilters": "Apply filters",
+      "ResetFilters": "Reset filters"
+    }
+  },
+  "Conferences": {
+    "Filters": {
+      "StartDate": "Start date",
+      "EndDate": "End date"
+    }
+  },
   "DateTime": {
     "InvalidDateMessage": "Invalid Date Format",
     "MinDateMessage": "Date should not be before minimal date",
