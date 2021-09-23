@@ -31,6 +31,9 @@
     "Yes": "Yes",
     "No": "No"
   },
+  "UserMenu": {
+    "User": "User"
+  },
   "DateTime": {
     "InvalidDateMessage": "Invalid Date Format",
     "MinDateMessage": "Date should not be before minimal date",

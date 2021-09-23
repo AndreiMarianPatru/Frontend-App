@@ -69,7 +69,7 @@ function Welcome() {
             id={!isValid && 'outlined-error-helper-text'}
             label={!isValid && 'Error'}
             helperText={!isValid && t('LandingPage.BadEmail')}
-            variant={!isValid && 'outlined'}
+            variant='outlined'
           />
         </Grid>
       </Grid>

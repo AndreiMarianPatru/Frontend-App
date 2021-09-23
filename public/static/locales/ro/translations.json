@@ -20,6 +20,9 @@
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola"
   },
+  "UserMenu": {
+    "User": "Utilizator"
+  },
 
   "Dialog": {
     "Yes": "Da",

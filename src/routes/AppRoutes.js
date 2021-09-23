@@ -8,8 +8,19 @@ import Welcome from 'features/Welcome/welcome'
 import Settings from 'features/settings/Settings'
 import { Forbidden, NotFound } from '@bit/totalsoft_oss.react-mui.kit.core'
 import HelloWorld from 'features/helloWorld/HelloWorld'
+import { useEmail } from 'hooks/useEmail'
 
 export default function AppRoutes() {
+  const [email] = useEmail()
+
+  if (!email) {
+    return (
+      <Switch>
+        <CustomRoute isPrivate={false} exact path='/welcome' component={Welcome} />
+        <Redirect from='/' to='/welcome' />
+      </Switch>
+    )
+  }
   return (
     <Switch>
       <CustomRoute isPrivate={false} exact path='/helloWorld' component={HelloWorld} />
