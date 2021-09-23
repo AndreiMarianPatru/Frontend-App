@@ -15,7 +15,13 @@
   "NavBar": {
     "MyFirstMenu": "My first menu",
     "Welcome": "Welcome",
-    "Settings": "Settings"
+    "Settings": "Settings",
+    "Conferences": "Conferinte"
+  },
+  "LandingPage": {
+    "Title": "Welcome!",
+    "Subtitle": "Please enter your email:",
+    "BadEmail": "This is not a valid email!"
   },
   "Tooltips": {
     "Logout": "Logout",
@@ -25,6 +31,9 @@
   "Dialog": {
     "Yes": "Yes",
     "No": "No"
+  },
+  "UserMenu": {
+    "User": "User"
   },
   "DateTime": {
     "InvalidDateMessage": "Invalid Date Format",

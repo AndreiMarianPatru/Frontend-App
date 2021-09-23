@@ -8,13 +8,23 @@
     "MyFirstMenu": "Primul meu meniu",
     "Welcome": "Bun venit",
     "Settings": "Setari",
-    "User": "Profil"
+    "User": "Profil",
+    "Conferences": "Conferinte"
+  },
+  "LandingPage": {
+    "Title": "Bun venit!",
+    "Subtitle": "Te rog introdu email-ul personal:",
+    "BadEmail": "Acesta nu este un email valid!"
   },
   "Tooltips": {
     "Logout": "Iesire",
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola"
   },
+  "UserMenu": {
+    "User": "Utilizator"
+  },
+
   "Dialog": {
     "Yes": "Da",
     "No": "Nu"
