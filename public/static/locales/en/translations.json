@@ -46,7 +46,8 @@
       "ResetFilters": "Reset filters",
       "AddConference": "Add Conference",
       "Save": "Save",
-      "AddSpeaker": "Add speaker"
+      "AddSpeaker": "Add speaker",
+      "DeleteSpeaker": "Delete speaker"
     }
   },
   "Conference": {
@@ -59,6 +60,7 @@
     "Type": "Conference type",
     "Category": "Category"
   },
+
   "Conferences": {
     "Speaker": "Speaker ",
     "Attend": "Attend",
@@ -69,6 +71,12 @@
       "StartDate": "Start date",
       "EndDate": "End date"
     }
+  },
+  "Speaker": {
+    "Name": "Name",
+    "Nationality": "Nationality",
+    "Rating": "Rating",
+    "MainSpeaker": "Main Speaker"
   },
   "DateTime": {
     "InvalidDateMessage": "Invalid Date Format",

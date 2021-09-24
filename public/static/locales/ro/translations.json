@@ -40,7 +40,8 @@
       "ResetFilters": "Reseteaza filtre",
       "AddConference": "Adauga Conferinta",
       "Save": "Salveaza",
-      "AddSpeaker": "Adauga orator"
+      "AddSpeaker": "Adauga orator",
+      "DeleteSpeaker": "Sterge orator"
     }
   },
   "Conferences": {
@@ -63,6 +64,12 @@
     "EndDate": "Data sfarsit",
     "Type": "Tipul conferintei",
     "Category": "Categorie"
+  },
+  "Speaker": {
+    "Name": "Nume",
+    "Nationality": "Nationalitate",
+    "Rating": "Rating",
+    "MainSpeaker": "Orator principal"
   },
   "DateTime": {
     "InvalidDateMessage": "Formatul datei este invalid",
