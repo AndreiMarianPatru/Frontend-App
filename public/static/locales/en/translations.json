@@ -19,6 +19,10 @@
     "Conferences": "Conferences",
     "MyConferences": "My Conferences "
   },
+  "MyConferences": {
+    "Edit": "Edit",
+    "Delete": "Delete"
+  },
   "LandingPage": {
     "Title": "Welcome!",
     "Subtitle": "Please enter your email:",
@@ -39,7 +43,8 @@
   "General": {
     "Buttons": {
       "ApplyFilters": "Apply filters",
-      "ResetFilters": "Reset filters"
+      "ResetFilters": "Reset filters",
+      "AddConference": "Add Conference"
     }
   },
   "Conferences": {

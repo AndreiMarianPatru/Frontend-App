@@ -25,6 +25,10 @@
   "UserMenu": {
     "User": "Utilizator"
   },
+  "MyConferences": {
+    "Edit": "Editeaza",
+    "Delete": "Sterge"
+  },
 
   "Dialog": {
     "Yes": "Da",
@@ -33,7 +37,8 @@
   "General": {
     "Buttons": {
       "ApplyFilters": "Aplica filtre",
-      "ResetFilters": "Reseteaza filtre"
+      "ResetFilters": "Reseteaza filtre",
+      "AddConference": "Adauga Conferinta"
     }
   },
   "Conferences": {

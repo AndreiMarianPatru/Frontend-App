@@ -6,29 +6,19 @@ import Typography from '@bit/totalsoft_oss.react-mui.typography'
 //import Typography from 'components/common/inputs/Typography';
 import Button from '@bit/totalsoft_oss.react-mui.button'
 //import Button from 'components/common/buttons/Button';
-import attendeeStatus from 'constants/attendeeStatus'
+//import attendeeStatus from 'constants/attendeeStatus'
 
 const MyConferenceContent = props => {
   const { conference } = props
-  const { status, startDate, endDate, type, category } = conference
+  const { startDate, endDate, type, category } = conference
 
   const { t } = useTranslation()
-  const noStatusSet = t('Conferences.StatusNotSet')
-
-  const showJoin = status.id === attendeeStatus.Attended
-  const showWithdraw = status.id === attendeeStatus.Attended || status.id === attendeeStatus.Joined
-  const showAttend = status.id === attendeeStatus.Withdrawn
 
   const startDateFormatted = t('DATE_FORMAT', { date: { value: startDate, format: 'DD-MM-YYYY HH:mm' } })
   const endDateFormatted = t('DATE_FORMAT', { date: { value: endDate, format: 'DD-MM-YYYY HH:mm' } })
 
   return (
     <Grid container>
-      <Grid item xs={12}>
-        <Typography variant='subtitle1' color='error'>
-          {status?.name || noStatusSet}
-        </Typography>
-      </Grid>
       <Grid item xs={12}>
         <Typography>{`${startDateFormatted} - ${endDateFormatted}`}</Typography>
       </Grid>
@@ -37,21 +27,12 @@ const MyConferenceContent = props => {
       </Grid>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          {showJoin && (
-            <Button right color='success' size={'sm'}>
-              {t('Conferences.Join')}
-            </Button>
-          )}
-          {showWithdraw && (
-            <Button right color='danger' size={'sm'}>
-              {t('Conferences.Withdraw')}
-            </Button>
-          )}
-          {showAttend && (
-            <Button right color='info' size={'sm'}>
-              {t('Conferences.Attend')}
-            </Button>
-          )}
+          <Button right color='danger' size={'sm'}>
+            {t('MyConferences.Delete')}
+          </Button>
+          <Button right color='info' size={'sm'}>
+            {t('MyConferences.Edit')}
+          </Button>
         </Grid>
       </Grid>
     </Grid>

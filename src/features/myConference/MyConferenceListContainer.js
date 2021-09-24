@@ -1,11 +1,37 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import MyConferenceFilters from './MyConferenceFilters'
 import Myconferences from 'utils/mocks/attendeesList'
 import MyConferenceList from './MyConferenceList'
 import LoadingFakeText from '@bit/totalsoft_oss.react-mui.fake-text'
 import { generateDefaultFilters } from 'utils/functions'
+import { useTranslation } from 'react-i18next'
+import { useHeader } from 'providers/AreasProvider'
+import MyConferenceHeader from './MyConferenceHeader'
+import AddButton from '@bit/totalsoft_oss.react-mui.add-button'
 
 const MyConferenceListContainer = () => {
+  const { t } = useTranslation()
+
+  const [, setHeader] = useHeader()
+
+  useEffect(() => {
+    //did mount
+    return () => {
+      //will unmount
+      setHeader(null)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    setHeader(
+      <MyConferenceHeader
+        title={t('NavBar.MyConferences')}
+        actions={<AddButton key='addButton' title={t('General.Buttons.AddConference')} />}
+      />
+    )
+  }, [setHeader, t])
+
   const [filters, setFilters] = useState(generateDefaultFilters())
   const { data, loading } = { data: Myconferences, loading: false }
 
