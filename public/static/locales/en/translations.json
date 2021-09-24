@@ -44,8 +44,15 @@
     "Buttons": {
       "ApplyFilters": "Apply filters",
       "ResetFilters": "Reset filters",
-      "AddConference": "Add Conference"
+      "AddConference": "Add Conference",
+      "Save": "Save",
+      "AddSpeaker": "Add speaker"
     }
+  },
+  "Conference": {
+    "Info": "Conference info",
+    "Location": "Location",
+    "Speakers": "Speakers"
   },
   "Conferences": {
     "Speaker": "Speaker ",

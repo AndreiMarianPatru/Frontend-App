@@ -38,7 +38,9 @@
     "Buttons": {
       "ApplyFilters": "Aplica filtre",
       "ResetFilters": "Reseteaza filtre",
-      "AddConference": "Adauga Conferinta"
+      "AddConference": "Adauga Conferinta",
+      "Save": "Salveaza",
+      "AddSpeaker": "Adauga orator"
     }
   },
   "Conferences": {
@@ -51,6 +53,11 @@
       "StartDate": "Data incepere",
       "EndDate": "Data terminare"
     }
+  },
+  "Conference": {
+    "Info": "Informatii conferinta",
+    "Location": "Locatie",
+    "Speakers": "Oratori"
   },
   "DateTime": {
     "InvalidDateMessage": "Formatul datei este invalid",
