@@ -8,9 +8,16 @@ import { useTranslation } from 'react-i18next'
 import { useHeader } from 'providers/AreasProvider'
 import MyConferenceHeader from './MyConferenceHeader'
 import AddButton from '@bit/totalsoft_oss.react-mui.add-button'
+import { useHistory } from 'react-router'
 
 const MyConferenceListContainer = () => {
   const { t } = useTranslation()
+
+  const history = useHistory()
+
+  const handleAddClick = useCallback(() => {
+    history.push('myconference/new')
+  }, [history])
 
   const [, setHeader] = useHeader()
 
@@ -27,7 +34,7 @@ const MyConferenceListContainer = () => {
     setHeader(
       <MyConferenceHeader
         title={t('NavBar.MyConferences')}
-        actions={<AddButton key='addButton' title={t('General.Buttons.AddConference')} />}
+        actions={<AddButton key='addButton' title={t('General.Buttons.AddConference')} onClick={handleAddClick} />}
       />
     )
   }, [setHeader, t])
