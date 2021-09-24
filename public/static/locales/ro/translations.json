@@ -57,7 +57,12 @@
   "Conference": {
     "Info": "Informatii conferinta",
     "Location": "Locatie",
-    "Speakers": "Oratori"
+    "Speakers": "Oratori",
+    "Name": "Nume conferinta",
+    "StartDate": "Data inceput",
+    "EndDate": "Data sfarsit",
+    "Type": "Tipul conferintei",
+    "Category": "Categorie"
   },
   "DateTime": {
     "InvalidDateMessage": "Formatul datei este invalid",

@@ -52,7 +52,12 @@
   "Conference": {
     "Info": "Conference info",
     "Location": "Location",
-    "Speakers": "Speakers"
+    "Speakers": "Speakers",
+    "Name": "Conference name",
+    "StartDate": "Start date",
+    "EndDate": "End date",
+    "Type": "Conference type",
+    "Category": "Category"
   },
   "Conferences": {
     "Speaker": "Speaker ",
