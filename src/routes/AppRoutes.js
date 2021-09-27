@@ -31,6 +31,7 @@ export default function AppRoutes() {
       <CustomRoute isPrivate={false} exact path='/conference' component={ConferenceListContainer} />
       <CustomRoute isPrivate={false} exact path='/myconference' component={MyConferenceListContainer} />
       <CustomRoute isPrivate={false} exact path='/myconference/:id(new)' component={MyConferenceContainer} />
+      <CustomRoute isPrivate={false} exact path='/myconference/:id(\d+)' component={MyConferenceContainer} />
       <Redirect exact from='/' to='/welcome' />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />

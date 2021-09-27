@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next'
 import { types, categories, countries, counties, cities } from 'utils/mocks/addConference'
 import MyConference from './MyConference'
 import { reducer, initialConference } from '../conferenceState'
+import { useRouteMatch } from 'react-router'
+import { id } from 'date-fns/locale'
+import { conference as mockConference } from 'utils/mocks/myConference'
 
 const MyConferenceContainer = () => {
   const { t } = useTranslation()
@@ -13,11 +16,20 @@ const MyConferenceContainer = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => () => setHeader(null), [])
 
+  const match = useRouteMatch()
+  const conferenceId = match.params.id
+  const isNew = conferenceId === 'new'
+  useEffect(() => {
+    if (!isNew) {
+      dispatch({ type: 'resetConference', payload: mockConference })
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   const [conference, dispatch] = useReducer(reducer, initialConference)
 
   useEffect(() => {
-    setHeader(<MyConferenceHeader actions={<SaveButton title={t('General.Buttons.Save')} />} />)
-  }, [setHeader, t])
+    setHeader(<MyConferenceHeader title={conference.name} actions={<SaveButton title={t('General.Buttons.Save')} />} />)
+  }, [conference.name, setHeader, t])
 
   const { loading, data } = {
     loading: false,

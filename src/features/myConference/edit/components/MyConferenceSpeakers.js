@@ -28,7 +28,7 @@ const MyConferenceSpeakers = props => {
             </Tr>
           </Thead>
           <Tbody>
-            {speakers?.map((speaker, index) => (
+            {speakers?.map(speaker => (
               <MyConferenceSpeakerData key={speaker?.id} speaker={speaker} dispatch={dispatch} />
             ))}
           </Tbody>
