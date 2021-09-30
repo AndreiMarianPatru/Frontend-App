@@ -9,12 +9,16 @@ import { reducer, initialConference } from '../conferenceState'
 import { useRouteMatch } from 'react-router'
 import { id } from 'date-fns/locale'
 import { conference as mockConference } from 'utils/mocks/myConference'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import { CONFERENCE_LIST_QUERY } from 'features/conference/gql/queries/ConferenceListQuery'
+import { useEmail } from 'hooks/useEmail'
 
 const MyConferenceContainer = () => {
   const { t } = useTranslation()
   const [, setHeader] = useHeader()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => () => setHeader(null), [])
+  const [email] = useEmail()
 
   const match = useRouteMatch()
   const conferenceId = match.params.id

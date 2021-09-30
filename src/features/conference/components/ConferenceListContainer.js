@@ -3,14 +3,12 @@ import ConferenceFilters from './ConferenceFilters'
 //import conferences from 'utils/mocks/attendeesList'
 import ConferenceList from './ConferenceList'
 import LoadingFakeText from '@bit/totalsoft_oss.react-mui.fake-text'
-import { generateDefaultFilters } from 'utils/functions'
+import { extractPager, generateDefaultFilters } from 'utils/functions'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { CONFERENCE_LIST_QUERY } from '../gql/queries/ConferenceListQuery'
 import { useEmail } from 'hooks/useEmail'
 import Pagination from '@bit/totalsoft_oss.react-mui.pagination'
 import { useFooter } from 'providers/AreasProvider'
-
-const extractPager = ({ page, pageSize }) => ({ page, pageSize })
 
 const ConferenceListContainer = () => {
   const [pager, setPager] = useState({ totalCount: 0, page: 0, pageSize: 3 })
