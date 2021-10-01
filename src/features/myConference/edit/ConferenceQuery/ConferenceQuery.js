@@ -1,48 +1,39 @@
 import { gql } from '@apollo/client'
 import Fragments from 'features/conference/gql/queries/fragments'
+import Commonfragments from 'features/common/fragments'
 export const MYCONFERENCE_LIST_QUERY = gql`
   query conferenceById($id: ID!) {
     conference(id: $id) {
       ...conference
       location {
-        id
-        name
+        ...location
         country {
-          id
-          name
-          code
+          ...country
         }
         county {
-          id
-          name
-          code
+          ...county
         }
         city {
-          id
-          name
-          code
+          ...city
         }
-        address
-        latitude
-        longitude
       }
       type {
-        id
-        name
+        ...type
       }
       category {
-        id
-        name
+        ...category
       }
       speakers {
-        id
-        name
-        nationality
-        rating
-
-        isMainSpeaker
+        ...speaker
       }
     }
   }
   ${Fragments.conference}
+  ${Fragments.location}
+  ${Fragments.speaker}
+  ${Commonfragments.category}
+  ${Commonfragments.city}
+  ${Commonfragments.country}
+  ${Commonfragments.county}
+  ${Commonfragments.type}
 `
