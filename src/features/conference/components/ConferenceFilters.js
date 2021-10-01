@@ -26,6 +26,7 @@ const ConferenceFilters = props => {
   const handleResetClick = useCallback(() => {
     const defaultFilters = generateDefaultFilters()
     onApplyFilters(defaultFilters)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

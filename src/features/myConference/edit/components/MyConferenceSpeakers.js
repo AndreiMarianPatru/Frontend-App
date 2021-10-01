@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MyConferenceInfo from './MyConferenceInfo'
+//import MyConferenceInfo from './MyConferenceInfo'
 import { Grid, makeStyles } from '@material-ui/core'
 import { Table, Thead, Tbody, Tr, Th } from 'react-super-responsive-table'
 import { useTranslation } from 'react-i18next'

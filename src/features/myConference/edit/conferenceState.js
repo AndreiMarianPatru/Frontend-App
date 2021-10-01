@@ -1,5 +1,4 @@
 import { emptyString, emptyArray } from 'utils/constants'
-import { remove } from 'ramda'
 export const initialConference = {
   name: emptyString,
   startDate: null,

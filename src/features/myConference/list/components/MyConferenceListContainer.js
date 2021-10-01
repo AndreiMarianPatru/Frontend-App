@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import MyConferenceFilters from './MyConferenceFilters'
-import Myconferences from 'utils/mocks/attendeesList'
 import MyConferenceList from './MyConferenceList'
 import LoadingFakeText from '@bit/totalsoft_oss.react-mui.fake-text'
 import { extractPager, generateDefaultFilters } from 'utils/functions'

@@ -5,7 +5,6 @@ import { Switch, Redirect } from 'react-router-dom'
 import CustomRoute from '../components/routing/CustomRoute'
 
 import Welcome from 'features/Welcome/welcome'
-import Settings from 'features/settings/Settings'
 import { Forbidden, NotFound } from '@bit/totalsoft_oss.react-mui.kit.core'
 import HelloWorld from 'features/helloWorld/HelloWorld'
 import { useEmail } from 'hooks/useEmail'

@@ -1,14 +1,12 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 import { Grid } from '@material-ui/core'
 import CustomTextField from '@bit/totalsoft_oss.react-mui.custom-text-field'
 import DateTime from '@bit/totalsoft_oss.react-mui.date-time'
 import Autocomplete from '@bit/totalsoft_oss.react-mui.autocomplete'
-import conferences from 'utils/mocks/attendeesList'
-import { onTextBoxChange } from 'utils/propertyChangeAdapters'
 
-const ceva = func => event => func(event.target.value)
+import { onTextBoxChange } from 'utils/propertyChangeAdapters'
 
 const MyConferenceInfo = props => {
   const { types, categories, conference, dispatch } = props

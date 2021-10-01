@@ -45,7 +45,7 @@ const ConferenceListContainer = () => {
         onRefresh={refetch}
       />
     )
-  }, [handleRowsPerPageChange, pager.page, pager.pageSize, pager.totalCount, refetch, handleChangePage])
+  }, [handleRowsPerPageChange, pager.page, pager.pageSize, pager.totalCount, refetch, handleChangePage, setFooter])
 
   const handleApplyFilters = useCallback(value => {
     setFilters(value)
