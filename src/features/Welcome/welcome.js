@@ -45,11 +45,11 @@ function Welcome() {
   )
 
   return (
-    <Grid container justify='center' alignItems='center' alignContent='center' direction='column' spacing={10}>
+    <Grid container justifyContent='center' alignItems='center' alignContent='center' direction='column' spacing={10}>
       <Grid item xs={4}>
         <Typography variant='h5'>{t('LandingPage.Title')}</Typography>
       </Grid>
-      <Grid item container justify='center' alignItems='center' alignContent='center' direction='column' spacing={1}>
+      <Grid item container justifyContent='center' alignItems='center' alignContent='center' direction='column' spacing={1}>
         <Grid item xs={12}>
           <Typography variant='caption'>{t('LandingPage.Subtitle')}</Typography>
         </Grid>

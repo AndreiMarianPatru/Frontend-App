@@ -18,7 +18,7 @@ const MyConferenceHeader = props => {
           {title}
         </Typography>
       </Grid>
-      <Grid item xs={3} sm={3} lg={3} container justify='flex-end' spacing={1}>
+      <Grid item xs={3} sm={3} lg={3} container justifyContent='flex-end' spacing={1}>
         {actions}
       </Grid>
     </Grid>

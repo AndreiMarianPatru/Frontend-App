@@ -10,8 +10,8 @@ import { useRouteMatch } from 'react-router'
 import { id } from 'date-fns/locale'
 import { conference as mockConference } from 'utils/mocks/myConference'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
-
-import { MYCONFERENCE_LIST_QUERY } from 'features/myConference/edit/ConferenceQuery/ConferenceQuery'
+import { DICTIONARY_QUERY } from 'features/conference/gql/queries/DictionatyQuery'
+import { CONFERENCE_QUERY, MYCONFERENCE_LIST_QUERY } from 'features/myConference/edit/ConferenceQuery/ConferenceQuery'
 import { useEmail } from 'hooks/useEmail'
 import LoadingFakeText from '@bit/totalsoft_oss.react-mui.fake-text/dist/LoadingFakeText'
 
@@ -28,10 +28,9 @@ const MyConferenceContainer = () => {
 
   const [conference, dispatch] = useReducer(reducer, initialConference)
 
-  const { loading: loadingCeva } = useQueryWithErrorHandling(MYCONFERENCE_LIST_QUERY, {
-    variables: { id: conferenceId },
-    skip: isNew,
-    onCompleted: result => dispatch({ type: 'resetConference', payload: result.conference })
+  const { data: dataDict, loading: loadingCeva } = useQueryWithErrorHandling(CONFERENCE_QUERY, {
+    variables: { id: conferenceId, isNew },
+    onCompleted: result => result?.conference && dispatch({ type: 'resetConference', payload: result.conference })
   })
 
   const { loading, data } = {
@@ -55,11 +54,11 @@ const MyConferenceContainer = () => {
     <MyConference
       conference={conference}
       dispatch={dispatch}
-      types={data?.typeList}
-      categories={data?.categoryList}
-      countries={data?.countryList}
-      counties={data?.countyList}
-      cities={data?.cityList}
+      types={dataDict?.typeList}
+      categories={dataDict?.categoryList}
+      countries={dataDict?.countryList}
+      counties={dataDict?.countyList}
+      cities={dataDict?.cityList}
     />
   )
 }

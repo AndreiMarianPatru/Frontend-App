@@ -17,7 +17,7 @@ const MyConferenceSpeakers = props => {
   return (
     <>
       <Grid className={classes.enableScrollX}>
-        <Table classname={classes.Table}>
+        <Table className={classes.Table}>
           <Thead>
             <Tr>
               <Th className={classes.tableHeader}>{t('Speaker.Name')}</Th>
