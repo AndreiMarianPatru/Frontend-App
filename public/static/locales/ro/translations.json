@@ -42,7 +42,8 @@
       "Save": "Salveaza",
       "AddSpeaker": "Adauga orator",
       "DeleteSpeaker": "Sterge orator"
-    }
+    },
+    "Congratulations": "Felicitari"
   },
   "Conferences": {
     "Speaker": "Orator ",

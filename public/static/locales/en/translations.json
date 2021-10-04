@@ -48,7 +48,8 @@
       "Save": "Save",
       "AddSpeaker": "Add speaker",
       "DeleteSpeaker": "Delete speaker"
-    }
+    },
+    "Congratulations": "Congratulations"
   },
   "Conference": {
     "Info": "Conference info",

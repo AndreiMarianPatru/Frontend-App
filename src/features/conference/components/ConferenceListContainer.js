@@ -99,7 +99,13 @@ const ConferenceListContainer = () => {
     <>
       <ConferenceFilters filters={filters} onApplyFilters={handleApplyFilters} />
       <ConferenceList conferences={data?.conferenceList?.values} onAttend={handleAttend} />
-      <DialogDisplay id='showQRCode' open={open} onClose={handleClose} content={<ConferenceCodeModal code={code} />} />
+      <DialogDisplay
+        id='showQRCode'
+        open={open}
+        onClose={handleClose}
+        title={t('General.Congratulations')}
+        content={<ConferenceCodeModal code={code} />}
+      />
     </>
   )
 }
