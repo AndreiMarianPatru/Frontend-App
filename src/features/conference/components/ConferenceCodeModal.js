@@ -4,24 +4,43 @@ import { useTranslation } from 'react-i18next'
 import { Grid } from '@material-ui/core'
 import qr from 'assets/img/qr.png'
 import Typography from '@bit/totalsoft_oss.react-mui.typography'
+import ConferenceItem from './ConferenceItem'
+import { isEmpty } from 'ramda'
 
-const ConferenceCodeModal = ({ code }) => {
+const ConferenceCodeModal = ({ code, suggestedConferences, onAttend }) => {
   const { t } = useTranslation()
+
   //return t('Conferences.QRCodeMessage',{code})
   return (
-    <Grid container justify={'center'}>
-      <Grid item>
-        <img src={qr} style={{ maxHeight: '400px' }} alt='QR' />
+    <>
+      <Grid container justify={'center'}>
+        <Grid item>
+          <img src={qr} style={{ maxHeight: '400px' }} alt='QR' />
+        </Grid>
+        <Grid item>
+          <Typography>{t('Conferences.QRCodeMessage', { code })}</Typography>
+        </Grid>
       </Grid>
-      <Grid item>
-        <Typography>{t('Conferences.QRCodeMessage', { code })}</Typography>
-      </Grid>
-    </Grid>
+      {!isEmpty(suggestedConferences) && (
+        <Grid container>
+          <Grid item lg={12}>
+            <Typography>{t('General.SuggestedConference')}</Typography>{' '}
+          </Grid>
+          {suggestedConferences?.map(conference => (
+            <Grid item xs={12} lg={4} key={conference?.id}>
+              <ConferenceItem conference={conference} onAttend={onAttend} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+    </>
   )
 }
 
 ConferenceCodeModal.propTypes = {
-  code: PropTypes.object
+  code: PropTypes.object,
+  suggestedConferences: PropTypes.array,
+  onAttend: PropTypes.func
 }
 
 export default ConferenceCodeModal

@@ -16,7 +16,7 @@ import ConferenceCodeModal from '../components/ConferenceCodeModal'
 
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { useTranslation } from 'react-i18next'
-import { emptyString } from 'utils/constants'
+import { emptyArray, emptyString } from 'utils/constants'
 
 const ConferenceListContainer = () => {
   const [pager, setPager] = useState({ totalCount: 0, page: 0, pageSize: 3 })
@@ -37,11 +37,14 @@ const ConferenceListContainer = () => {
 
   const [code, setCode] = useState()
   const [open, setOpen] = useState(false)
+  const [suggestedConferences, setSuggestedConferences] = useState(emptyArray)
 
   const [attend] = useMutation(ATTEND_CONFERENCE, {
     onError: showError,
     onCompleted: result => {
       result?.attend && setCode(result?.attend)
+      setCode(result?.attend.code)
+      setSuggestedConferences(result?.attend.suggestedConferences)
       setOpen(true)
       addToast(t('Conferences.SuccessfullyAtteneded'), 'success')
     }
@@ -104,7 +107,7 @@ const ConferenceListContainer = () => {
         open={open}
         onClose={handleClose}
         title={t('General.Congratulations')}
-        content={<ConferenceCodeModal code={code} />}
+        content={<ConferenceCodeModal code={code} suggestedConferences={suggestedConferences} onAttend={handleAttend} />}
       />
     </>
   )

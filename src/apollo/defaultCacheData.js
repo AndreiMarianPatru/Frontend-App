@@ -4,6 +4,6 @@ import { emailKey } from './cacheKeyFunctions'
 // https://www.apollographql.com/docs/react/local-state/local-state-management/
 
 //const defaultEmail = { email: emptyString }
-const defaultEmail = { email: 'admin@totalsoft.ro' }
+const defaultEmail = { email: 'adsdsasadsadamin@totalsoft.ro' }
 
 export const defaults = { [emailKey]: defaultEmail }

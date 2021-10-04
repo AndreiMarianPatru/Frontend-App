@@ -49,7 +49,8 @@
       "AddSpeaker": "Add speaker",
       "DeleteSpeaker": "Delete speaker"
     },
-    "Congratulations": "Congratulations"
+    "Congratulations": "Congratulations",
+    "SuggestedConference": "Based on your choice, we suggest the following conferences"
   },
   "Conference": {
     "Info": "Conference info",

@@ -43,7 +43,8 @@
       "AddSpeaker": "Adauga orator",
       "DeleteSpeaker": "Sterge orator"
     },
-    "Congratulations": "Felicitari"
+    "Congratulations": "Felicitari",
+    "SuggestedConference": "Pe baza alegerii tale, iti sugeram urmatoarele conferinte"
   },
   "Conferences": {
     "Speaker": "Orator ",
