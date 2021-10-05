@@ -57,7 +57,7 @@
       "StartDate": "Data incepere",
       "EndDate": "Data terminare"
     },
-    "SuccessfullyAtteneded": "Felicitari! Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa.",
+    "SuccessfullyAttended": "Felicitari! Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa.",
     "QRCodeMessage": "Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa. Foloseste urmatorul cod pentru a accesa conferinta: {{code}}",
     "SuccessfullyWithdrawn": "Te-ai retras cu succes din conferinta"
   },

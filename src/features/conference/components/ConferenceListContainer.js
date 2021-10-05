@@ -52,7 +52,7 @@ const ConferenceListContainer = () => {
 
   const [withdraw] = useMutation(WITHDRAW_CONFERENCE, {
     onError: showError,
-    onCompleted: result => {
+    onCompleted: () => {
       addToast(t('Conferences.SuccessfullyWithdrawn'), 'success')
       refetch()
     }
