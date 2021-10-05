@@ -21,7 +21,8 @@
   },
   "MyConferences": {
     "Edit": "Edit",
-    "Delete": "Delete"
+    "Delete": "Delete",
+    "SavingSucceeded": "Conference successfully saved"
   },
   "LandingPage": {
     "Title": "Welcome!",
