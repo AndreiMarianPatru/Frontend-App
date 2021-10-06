@@ -9,7 +9,7 @@ import Button from '@bit/totalsoft_oss.react-mui.button'
 import attendeeStatus from 'constants/attendeeStatus'
 
 const ConferenceContent = props => {
-  const { conference, onAttend, onWithdraw } = props
+  const { conference, onAttend, onWithdraw, onJoin } = props
   const { status, startDate, endDate, type, category } = conference
 
   const { t } = useTranslation()
@@ -38,7 +38,7 @@ const ConferenceContent = props => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           {showJoin && (
-            <Button right color='success' size={'sm'}>
+            <Button onClick={onJoin(conference)} right color='success' size={'sm'}>
               {t('Conferences.Join')}
             </Button>
           )}
@@ -61,7 +61,8 @@ const ConferenceContent = props => {
 ConferenceContent.propTypes = {
   conference: PropTypes.object.isRequired,
   onAttend: PropTypes.func.isRequired,
-  onWithdraw: PropTypes.func.isRequired
+  onWithdraw: PropTypes.func.isRequired,
+  onJoin: PropTypes.func.isRequired
 }
 
 export default ConferenceContent

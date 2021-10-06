@@ -12,8 +12,10 @@ import { useError } from 'hooks/errorHandling'
 import { useMutation } from '@apollo/client'
 import { ATTEND_CONFERENCE } from '../gql/mutations/AttendConference'
 import { WITHDRAW_CONFERENCE } from '../gql/mutations/WithdrawConference'
+import { ATTENDEES_QUERY } from '../gql/queries/AttendeesListQuery'
 import { DialogDisplay } from '@bit/totalsoft_oss.react-mui.kit.core'
 import ConferenceCodeModal from '../components/ConferenceCodeModal'
+import ConferenceJoinModal from '../components/ConferenceJoinModal'
 
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { useTranslation } from 'react-i18next'
@@ -31,6 +33,8 @@ const ConferenceListContainer = () => {
   const [open, setOpen] = useState(false)
   const [suggestedConferences, setSuggestedConferences] = useState(emptyArray)
 
+  const [openJoin, setOpenJoin] = useState(false)
+
   const { data, loading, refetch } = useQueryWithErrorHandling(CONFERENCE_LIST_QUERY, {
     variables: { pager: extractPager(pager), filters, email },
     onCompleted: results => {
@@ -46,9 +50,28 @@ const ConferenceListContainer = () => {
       setCode(result?.attend.code)
       setSuggestedConferences(result?.attend.suggestedConferences)
       setOpen(true)
-      addToast(t('Conferences.SuccessfullyAtteneded'), 'success')
+      addToast(t('Conferences.SuccessfullyAttended'), 'success')
     }
   })
+
+  const [join] = useMutation(ATTENDEES_QUERY, {
+    onError: showError,
+    onCompleted: () => {
+      setOpenJoin(true)
+      addToast(t('Conferences.SuccessfullyJoined'), 'success')
+    }
+  })
+
+  const handleJoin = useCallback(
+    conference => () => {
+      const input = {
+        attendeeEmail: email,
+        conferenceId: conference.id
+      }
+      join({ variables: { input } })
+    },
+    [join, email]
+  )
 
   const [withdraw] = useMutation(WITHDRAW_CONFERENCE, {
     onError: showError,
@@ -61,6 +84,12 @@ const ConferenceListContainer = () => {
   const handleClose = useCallback(() => {
     setOpen(false)
     setCode(emptyString)
+    refetch()
+  }, [refetch])
+
+  const handleCloseJoin = useCallback(() => {
+    setOpenJoin(false)
+
     refetch()
   }, [refetch])
 
@@ -120,13 +149,20 @@ const ConferenceListContainer = () => {
   return (
     <>
       <ConferenceFilters filters={filters} onApplyFilters={handleApplyFilters} />
-      <ConferenceList conferences={data?.conferenceList?.values} onAttend={handleAttend} onWithdraw={handleWithdraw} />
+      <ConferenceList conferences={data?.conferenceList?.values} onAttend={handleAttend} onWithdraw={handleWithdraw} onJoin={handleJoin} />
       <DialogDisplay
         id='showQRCode'
         open={open}
         onClose={handleClose}
         title={t('General.Congratulations')}
         content={<ConferenceCodeModal code={code} suggestedConferences={suggestedConferences} onAttend={handleAttend} />}
+      />
+      <DialogDisplay
+        id='showJoin'
+        open={openJoin}
+        onClose={handleCloseJoin}
+        title={t('General.Congratulations')}
+        content={<ConferenceJoinModal />}
       />
     </>
   )
