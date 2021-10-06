@@ -9,10 +9,10 @@ import { useEmail } from 'hooks/useEmail'
 import Pagination from '@bit/totalsoft_oss.react-mui.pagination'
 import { useFooter } from 'providers/AreasProvider'
 import { useError } from 'hooks/errorHandling'
-import { useMutation } from '@apollo/client'
+import { useLazyQuery, useMutation } from '@apollo/client'
 import { ATTEND_CONFERENCE } from '../gql/mutations/AttendConference'
 import { WITHDRAW_CONFERENCE } from '../gql/mutations/WithdrawConference'
-import { ATTENDEES_QUERY } from '../gql/queries/AttendeesListQuery'
+import { JOIN_MUTATION } from '../gql/mutations/JoinConference'
 import { DialogDisplay } from '@bit/totalsoft_oss.react-mui.kit.core'
 import ConferenceCodeModal from '../components/ConferenceCodeModal'
 import ConferenceJoinModal from '../components/ConferenceJoinModal'
@@ -32,6 +32,9 @@ const ConferenceListContainer = () => {
   const [code, setCode] = useState()
   const [open, setOpen] = useState(false)
   const [suggestedConferences, setSuggestedConferences] = useState(emptyArray)
+
+  const [attendees, setAttendees] = useState()
+  const [organizerEmail, setOrganizerEmail] = useState()
 
   const [openJoin, setOpenJoin] = useState(false)
 
@@ -54,24 +57,18 @@ const ConferenceListContainer = () => {
     }
   })
 
-  const [join] = useMutation(ATTENDEES_QUERY, {
+  const date = Date.now()
+
+  const [join] = useMutation(JOIN_MUTATION, {
     onError: showError,
-    onCompleted: () => {
-      setOpenJoin(true)
+    onCompleted: result => {
+      result?.attendeesEmails && setAttendees(result?.attendeesEmails) && setOrganizerEmail(result?.organizerEmail)
+      setAttendees(result?.attendeesEmails)
+      setOrganizerEmail(result?.organizerEmail)
+
       addToast(t('Conferences.SuccessfullyJoined'), 'success')
     }
   })
-
-  const handleJoin = useCallback(
-    conference => () => {
-      const input = {
-        attendeeEmail: email,
-        conferenceId: conference.id
-      }
-      join({ variables: { input } })
-    },
-    [join, email]
-  )
 
   const [withdraw] = useMutation(WITHDRAW_CONFERENCE, {
     onError: showError,
@@ -80,19 +77,17 @@ const ConferenceListContainer = () => {
       refetch()
     }
   })
-
-  const handleClose = useCallback(() => {
-    setOpen(false)
-    setCode(emptyString)
-    refetch()
-  }, [refetch])
-
-  const handleCloseJoin = useCallback(() => {
-    setOpenJoin(false)
-
-    refetch()
-  }, [refetch])
-
+  const handleJoin = useCallback(
+    conferenceId => () => {
+      const input = {
+        conferenceId,
+        attendeeEmail: email
+        //statusId: 1 // Joined
+      }
+      join({ variables: { input } })
+    },
+    [join, email]
+  )
   const handleAttend = useCallback(
     conferenceId => () => {
       const input = {
@@ -115,6 +110,18 @@ const ConferenceListContainer = () => {
     },
     [withdraw, email]
   )
+
+  const handleClose = useCallback(() => {
+    setOpen(false)
+    setCode(emptyString)
+    refetch()
+  }, [refetch])
+
+  const handleCloseJoin = useCallback(() => {
+    setOpenJoin(false)
+
+    refetch()
+  }, [refetch])
 
   const handleRowsPerPageChange = useCallback(pageSize => {
     setPager(state => ({ ...state, pageSize: parseInt(pageSize) }))

@@ -38,7 +38,7 @@ const ConferenceContent = props => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           {showJoin && (
-            <Button onClick={onJoin(conference)} right color='success' size={'sm'}>
+            <Button onClick={onJoin(conference?.id)} right color='success' size={'sm'}>
               {t('Conferences.Join')}
             </Button>
           )}
