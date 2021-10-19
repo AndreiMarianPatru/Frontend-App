@@ -162,7 +162,15 @@ const ConferenceListContainer = () => {
         open={open}
         onClose={handleClose}
         title={t('General.Congratulations')}
-        content={<ConferenceCodeModal code={code} suggestedConferences={suggestedConferences} onAttend={handleAttend} />}
+        content={
+          <ConferenceCodeModal
+            code={code}
+            suggestedConferences={suggestedConferences}
+            onAttend={handleAttend}
+            onWithdraw={handleWithdraw}
+            onJoin={handleJoin}
+          />
+        }
       />
       <DialogDisplay
         id='showJoin'
