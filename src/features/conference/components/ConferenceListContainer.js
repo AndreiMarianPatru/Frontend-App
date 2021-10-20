@@ -16,7 +16,7 @@ import { JOIN_MUTATION } from '../gql/mutations/JoinConference'
 import { DialogDisplay } from '@bit/totalsoft_oss.react-mui.kit.core'
 import ConferenceCodeModal from '../components/ConferenceCodeModal'
 import ConferenceJoinModal from '../components/ConferenceJoinModal'
-
+import { useHistory, useRouteMatch } from 'react-router'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { useTranslation } from 'react-i18next'
 import { emptyArray, emptyString } from 'utils/constants'
@@ -32,7 +32,7 @@ const ConferenceListContainer = () => {
   const [code, setCode] = useState()
   const [open, setOpen] = useState(false)
   const [suggestedConferences, setSuggestedConferences] = useState(emptyArray)
-
+  const history = useHistory()
   const [attendees, setAttendees] = useState()
   const [organizerEmail, setOrganizerEmail] = useState()
 
@@ -65,6 +65,7 @@ const ConferenceListContainer = () => {
       result?.attendeesEmails && setAttendees(result?.attendeesEmails) && setOrganizerEmail(result?.organizerEmail)
       setAttendees(result?.attendeesEmails)
       setOrganizerEmail(result?.organizerEmail)
+      history.push(`/conference/${result?.join?.conference?.id}`)
 
       addToast(t('Conferences.SuccessfullyJoined'), 'success')
     }
