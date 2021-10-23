@@ -9,13 +9,14 @@ import { isEmpty } from 'ramda'
 
 const ConferenceCodeModal = ({ code, suggestedConferences, onAttend, onWithdraw, onJoin }) => {
   const { t } = useTranslation()
+  const link = `https://api.qrserver.com/v1/create-qr-code/?data=${code}`
 
   //return t('Conferences.QRCodeMessage',{code})
   return (
     <>
       <Grid container justify={'center'}>
         <Grid item>
-          <img src={qr} style={{ maxHeight: '400px' }} alt='QR' />
+          <img src={link} style={{ maxHeight: '400px' }} alt='QR' />
         </Grid>
         <Grid item>
           <Typography>{t('Conferences.QRCodeMessage', { code })}</Typography>
