@@ -7,7 +7,7 @@ import Typography from '@bit/totalsoft_oss.react-mui.typography'
 import ConferenceItem from './ConferenceItem'
 import { isEmpty } from 'ramda'
 
-const CoferenceJoinModal = () => {
+const CoferenceJoinModal = ({ attendees, organizerEmail }) => {
   const { t } = useTranslation()
 
   return (
@@ -16,7 +16,9 @@ const CoferenceJoinModal = () => {
     </>
   )
 }
-
-CoferenceJoinModal.propTypes = {}
+CoferenceJoinModal.propTypes = {
+  attendees: PropTypes.array,
+  organizerEmail: PropTypes.object
+}
 
 export default CoferenceJoinModal

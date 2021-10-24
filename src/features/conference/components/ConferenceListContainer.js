@@ -63,9 +63,14 @@ const ConferenceListContainer = () => {
     onError: showError,
     onCompleted: result => {
       result?.attendeesEmails && setAttendees(result?.attendeesEmails) && setOrganizerEmail(result?.organizerEmail)
-      setAttendees(result?.attendeesEmails)
-      setOrganizerEmail(result?.organizerEmail)
-      history.push(`/conference/${result?.join?.conference?.id}`)
+      setAttendees(result?.join?.attendeesEmails)
+      setOrganizerEmail(result?.join?.organizerEmail)
+      const ana = result?.join?.organizerEmail
+      const bana = result?.join?.attendeesEmails
+      history.push({
+        pathname: `/conference/${result?.join?.conference?.id}`,
+        state: { organizerEmail: result?.join?.organizerEmail, attendees: result?.join?.attendeesEmails }
+      })
 
       addToast(t('Conferences.SuccessfullyJoined'), 'success')
     }
@@ -178,7 +183,7 @@ const ConferenceListContainer = () => {
         open={openJoin}
         onClose={handleCloseJoin}
         title={t('General.Congratulations')}
-        content={<ConferenceJoinModal />}
+        content={<ConferenceJoinModal attendees={attendees} organizerEmail={organizerEmail} />}
       />
     </>
   )
